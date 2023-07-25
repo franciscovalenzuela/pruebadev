@@ -17,25 +17,24 @@
 CREATE DATABASE IF NOT EXISTS `sistema` /*!40100 DEFAULT CHARACTER SET utf8mb3 COLLATE utf8mb3_bin */;
 USE `sistema`;
 
--- Volcando estructura para tabla sistema.candidatos
-CREATE TABLE IF NOT EXISTS `candidatos` (
+
+
+
+-- Volcando estructura para tabla sistema.regiones
+CREATE TABLE IF NOT EXISTS `regiones` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(80) COLLATE utf8mb3_bin DEFAULT NULL,
-  `apellido` varchar(80) COLLATE utf8mb3_bin DEFAULT NULL,
-  `comuna_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_candidato_comuna` (`comuna_id`),
-  CONSTRAINT `fk_candidato_comuna` FOREIGN KEY (`comuna_id`) REFERENCES `comunas` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
 
--- Volcando datos para la tabla sistema.candidatos: ~2 rows (aproximadamente)
-/*!40000 ALTER TABLE `candidatos` DISABLE KEYS */;
-INSERT INTO `candidatos` (`id`, `nombre`, `apellido`, `comuna_id`) VALUES
-	(1, 'Candidato 1', 'candidato 1', 1),
-	(2, 'Candidato 2', 'candidato 2', 2),
-	(3, 'Candidato 3', 'Candidato 3', 5),
-	(4, 'Candidato 4', 'Candidato 4', 7);
-/*!40000 ALTER TABLE `candidatos` ENABLE KEYS */;
+-- Volcando datos para la tabla sistema.regiones: ~2 rows (aproximadamente)
+/*!40000 ALTER TABLE `regiones` DISABLE KEYS */;
+INSERT INTO `regiones` (`id`, `nombre`) VALUES
+  (1, 'Los Lagos'),
+  (2, 'Los Rios'),
+  (3, 'Araucania'),
+  (4, 'Metropolitana');
+/*!40000 ALTER TABLE `regiones` ENABLE KEYS */;
 
 -- Volcando estructura para tabla sistema.comunas
 CREATE TABLE IF NOT EXISTS `comunas` (
@@ -61,6 +60,28 @@ INSERT INTO `comunas` (`id`, `nombre`, `region_id`) VALUES
 	(9, 'San miguel', 4);
 /*!40000 ALTER TABLE `comunas` ENABLE KEYS */;
 
+
+-- Volcando estructura para tabla sistema.candidatos
+CREATE TABLE IF NOT EXISTS `candidatos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(80) COLLATE utf8mb3_bin DEFAULT NULL,
+  `apellido` varchar(80) COLLATE utf8mb3_bin DEFAULT NULL,
+  `comuna_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_candidato_comuna` (`comuna_id`),
+  CONSTRAINT `fk_candidato_comuna` FOREIGN KEY (`comuna_id`) REFERENCES `comunas` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
+
+-- Volcando datos para la tabla sistema.candidatos: ~2 rows (aproximadamente)
+/*!40000 ALTER TABLE `candidatos` DISABLE KEYS */;
+INSERT INTO `candidatos` (`id`, `nombre`, `apellido`, `comuna_id`) VALUES
+  (1, 'Candidato 1', 'candidato 1', 1),
+  (2, 'Candidato 2', 'candidato 2', 2),
+  (3, 'Candidato 3', 'Candidato 3', 5),
+  (4, 'Candidato 4', 'Candidato 4', 7);
+/*!40000 ALTER TABLE `candidatos` ENABLE KEYS */;
+
+
 -- Volcando estructura para tabla sistema.opciones
 CREATE TABLE IF NOT EXISTS `opciones` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -77,21 +98,7 @@ INSERT INTO `opciones` (`id`, `nombre`) VALUES
 	(4, 'Amigos');
 /*!40000 ALTER TABLE `opciones` ENABLE KEYS */;
 
--- Volcando estructura para tabla sistema.regiones
-CREATE TABLE IF NOT EXISTS `regiones` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(80) COLLATE utf8mb3_bin DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
 
--- Volcando datos para la tabla sistema.regiones: ~2 rows (aproximadamente)
-/*!40000 ALTER TABLE `regiones` DISABLE KEYS */;
-INSERT INTO `regiones` (`id`, `nombre`) VALUES
-	(1, 'Los Lagos'),
-	(2, 'Los Rios'),
-	(3, 'Araucania'),
-	(4, 'Metropolitana');
-/*!40000 ALTER TABLE `regiones` ENABLE KEYS */;
 
 -- Volcando estructura para tabla sistema.votaciones
 CREATE TABLE IF NOT EXISTS `votaciones` (
