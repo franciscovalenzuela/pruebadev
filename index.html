@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Sistema Votacion</title>
+	<link rel="stylesheet" href="css/main.css?ver=6">
+</head>
+
+<body>
+	<h2>Formulario De Votación:</h2>
+	<form>
+		<div class="fila">
+			<div class="main col1">
+
+				<div class="fila_form">
+					<div class="col1">
+						<label for="nombre">Nombre y Apellido</label>
+					</div>
+
+					<div class="col2">
+						<input id="nombre" type="text" name="nombre"  class="campo" required>
+						<span id="msgerrornom" style="color: red"></span>
+					</div>
+				</div>
+
+				<div class="fila_form">
+					<div class="col1">
+						<label for="alias">Alias</label>
+					</div>
+
+					<div class="col2">
+						<input id="alias"type="text" name="alias" class="campo" required>
+						<span id="msgerroralias" style="color: red"></span>
+					</div>
+				</div>
+
+
+				<div class="fila_form">
+					<div class="col1">
+						<label for="rut">RUT(ej: 17630430-8)</label>
+					</div>
+					<div class="col2">
+						<input id="rut" type="text" name="rut" class="campo" required>
+						<span id="msgerrorrut" style="color: red"></span>
+					</div>
+				</div>
+
+				<div class="fila_form">
+					<div class="col1">
+						<label for="email">Email</label>
+					</div>
+					<div class="col2">
+						<input id="email" type="text" name="email" class="campo" required>
+						<span id="msgerrormail" style="color: red"></span>
+					</div>
+				</div>
+
+				<div class="fila_form">
+					<div class="col1">
+						<label for="region">Region</label>
+					</div>
+					<div class="col2">
+						<select id="region" name="region" data-placeholder="Seleccion region" class="campo">
+				        </select>
+			        </div>
+				</div>
+
+				<div class="fila_form">
+					<div class="col1">
+						<label for="comuna">Comuna</label>
+					</div>
+					<div class="col2">
+						<select id="comuna" name="comuna" data-placeholder="Seleccion comuna" class="campo">
+			        	</select>
+			        </div>
+				</div>
+
+				<div class="fila_form">
+					<div class="col1">
+						<label for="candidato">Candidato</label>
+					</div>
+					<div class="col2">
+						<select id="candidato" name="candidato" data-placeholder="Seleccion candidato" class="campo">
+			        	</select>
+			        </div>
+				</div>
+
+		        
+				<div class="fila_form">
+					<div class="col1">
+						<label for="candidato">Como se Entero de Nosotros</label>
+					</div>
+					<div class="col2">
+						<label for="opcion1">Web</label>
+						<input type="checkbox" class="opciones" name="opcion[]" value="1">
+
+						<label for="opcion2">TV</label>
+						<input type="checkbox" class="opciones" name="opcion[]" value="2">
+
+						<label for="opcion3">Redes Sociales</label>
+						<input type="checkbox" class="opciones" name="opcion[]" value="3">
+
+						<label for="opcion4">Amigo</label>
+						<input type="checkbox" class="opciones" name="opcion[]" value="4">
+						<span id="msgerrorchecked" style="color: red"></span>
+					</div>
+				</div>
+			</div>
+			<div class="col2"></div>
+		</div>
+
+	</form>
+	<button id="registrar" name="button">Votar</button>
+
+	<script src="js/jquery-3.7.0.min.js"></script>
+	<script src="js/jquery.rut.min.js"></script>
+	<script src="js/funciones.js"></script>
+</body>
+
+</html>
+

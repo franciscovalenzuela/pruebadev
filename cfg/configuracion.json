@@ -1,0 +1,8 @@
+{
+  "configuracion": {
+        "servidor": "localhost",
+        "usuario": "root",
+        "password": "root22",
+        "BD": "sistema"
+      }
+}

@@ -1,0 +1,33 @@
+/* CSS Principal */
+/* Uso de grid para separacion en columna y fila */
+.fila{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+
+.fila_form{
+  display: grid;
+  grid-template-columns: 2fr 5fr;
+  gap: 10px;
+  grid-auto-rows: minmax(0px, auto);
+  row-gap: 0px;
+  margin-bottom: 1%;
+}
+
+.col1{
+ grid-column: 1 / 2;
+}
+.col2{
+  grid-column: 2 / 2;
+}
+
+.main{
+	width: 100%;
+}
+.campo{
+	width: 40%;
+}
+
