@@ -197,13 +197,14 @@ $(document).ready(function () {
 	    var regex = /^[A-Za-z0-9]+$/;
 	 
 	    //Validar coincidencia de letras y numeros solamente, segun regex
-	    var isValid = false;
-	    isValid = regex.test(String.fromCharCode(keyCode));
-	    return isValid;
+	    var esvalido = false;
+	    esvalido = regex.test(String.fromCharCode(keyCode));
+	    return esvalido;
 	});
 
 	$('#alias').on("keyup",function() {
 	  var cantidad_minima = 5;
+
 	   $("#msgerroralias").html("");
 	  if(cantidad_minima > $(this).val().length) {
 
@@ -211,8 +212,21 @@ $(document).ready(function () {
 	   	validaciones_ok[2].estado= false;
 	    validaciones_ok[2].msg= "Debe ser mayor 5 caracteres";
 	  }else{
-	  	validaciones_ok[2].estado= true;
-	    validaciones_ok[2].msg= "";
+	  	var regex = /^[A-Za-z]+$/;
+	 
+	    //Validar coincidencia de letras y numeros solamente, segun regex
+	    var esvalido = false;
+	    esvalido = regex.test($(this).val());
+
+	    if(esvalido){
+	    	$("#msgerroralias").html("Alias Debe tener Letras y Numero");
+	   		validaciones_ok[2].estado= false;
+	    	validaciones_ok[2].msg= "Alias Debe tener Letras y Numero";
+	    }else{
+	    	validaciones_ok[2].estado= true;
+	    	validaciones_ok[2].msg= "";
+	    }
+	  	
 	  }
 	});
 
